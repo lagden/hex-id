@@ -1,6 +1,6 @@
 {
   "name": "@tadashi/hex-id",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Creates a new immutable ID based on the current system time.",
   "main": "index.js",
   "files": [
