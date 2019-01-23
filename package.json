@@ -1,0 +1,36 @@
+{
+  "name": "@tadashi/hex-id",
+  "version": "1.0.0",
+  "description": "Creates a new immutable ID based on the current system time.",
+  "main": "index.js",
+  "files": [
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "report": "nyc report --reporter=text-lcov | coveralls",
+    "pretest": "xo",
+    "test": "ava"
+  },
+  "keywords": [
+    "flatten",
+    "object",
+    "level",
+    "deep"
+  ],
+  "author": "Thiago Lagden",
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.9.1"
+  },
+  "devDependencies": {
+    "ava": "1.1.0",
+    "xo": "0.24.0"
+  },
+  "xo": {
+    "envs": [
+      "node"
+    ],
+    "semicolon": false
+  }
+}
