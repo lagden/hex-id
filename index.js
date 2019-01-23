@@ -5,7 +5,8 @@ const pid = Math.floor(Math.random() * 100000) % 0xFFFF
 let index = parseInt(Math.random() * 0xFFFFFF, 10)
 
 function _next() {
-	return (index += 1 % 0xFFFFFF)
+	index += 1 % 0xFFFFFF
+	return index
 }
 
 function _hex(length, n) {
