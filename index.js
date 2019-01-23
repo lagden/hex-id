@@ -1,12 +1,13 @@
 'use strict'
 
-const MACHINE = Math.floor(Math.random() * 0xFFFFFF)
-const pid = Math.floor(Math.random() * 100000) % 0xFFFF
-let index = parseInt(Math.random() * 0xFFFFFF, 10)
+const MID = Math.floor(Math.random() * 0xFFFFFF)
+const PID = Math.floor(Math.random() * 100000) % 0xFFFF
+
+let idx = parseInt(Math.random() * 0xFFFFFF, 10)
 
 function _next() {
-	index += 1 % 0xFFFFFF
-	return index
+	idx += 1 % 0xFFFFFF
+	return idx
 }
 
 function _hex(length, n) {
@@ -20,7 +21,7 @@ function _hex(length, n) {
  */
 function hexID() {
 	const time = parseInt(Date.now() / 1000, 10) % 0xFFFFFFFF
-	return `${_hex(8, time)}${_hex(6, MACHINE)}${_hex(4, pid)}${_hex(6, _next())}`
+	return `${_hex(8, time)}${_hex(6, MID)}${_hex(4, PID)}${_hex(6, _next())}`
 }
 
 module.exports = hexID
