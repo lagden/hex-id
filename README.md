@@ -28,6 +28,11 @@ $ npm i -S @tadashi/hex-id
 
 ## Usage
 
+You can use in `Node.js`, `Browser` and as `Module`.
+
+
+### Example
+
 ```js
 const hexID = require('@tadashi/hex-id')
 

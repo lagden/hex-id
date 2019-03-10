@@ -1,7 +1,10 @@
+/* eslint capitalized-comments: 0 */
+/* eslint import/extensions: 0 */
+
 'use strict'
 
 import test from 'ava'
-import hexID from '..'
+import hexID from '../index.mjs'
 
 test('basic', t => {
 	const idA = hexID()
