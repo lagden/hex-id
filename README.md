@@ -28,10 +28,8 @@ $ npm i -S @tadashi/hex-id
 
 ## Usage
 
-You can use in `Node.js`, `Browser` and as `Module`.
-
-
-### Example
+This module is using Universal Module Definition pattern.  
+It is capable of working everywhere, be it in the client, on the server or elsewhere.
 
 ```js
 const hexID = require('@tadashi/hex-id')
@@ -46,4 +44,4 @@ hexID()
 
 ## License
 
-MIT © [Thiago Lagden](http://lagden.in)
+MIT © [Thiago Lagden](https://lagden.in)

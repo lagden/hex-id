@@ -1,6 +1,6 @@
 'use strict'
 
-const NUM = typeof process !== 'undefined' ? process.pid : Math.random()
+const NUM = (typeof process === 'object' && process.pid) || Math.random()
 const PID = Math.floor(NUM * 100000) % 0xFFFF
 const MID = Math.floor(Math.random() * 0xFFFFFF)
 
@@ -21,8 +21,8 @@ function _toHex(length, n) {
  * @returns {string} returns a valid 24 character ObjectID hex string.
  */
 function hexID() {
-	const time = Math.floor(Math.random() / 1000) % 0xFFFFFFFF
+	const time = parseInt(Date.now() / 1000, 10) % 0xFFFFFFFF
 	return `${_toHex(8, time)}${_toHex(6, MID)}${_toHex(4, PID)}${_toHex(6, _next())}`
 }
 
-export default hexID
+module.exports = hexID
