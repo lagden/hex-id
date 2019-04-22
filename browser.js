@@ -1,3 +1,5 @@
+/* globals window */
+
 const PROCESS_UNIQUE = window.crypto.getRandomValues(new Uint8Array(5))
 let cc = Math.floor(Math.random() * 0xFFFFFF)
 
@@ -12,6 +14,7 @@ function _toHex(view) {
 	for (let i = 0; i < len; i++) {
 		arr.push(view.getUint8(i).toString(16).padStart(2, '0'))
 	}
+
 	return arr.join('')
 }
 
@@ -22,10 +25,10 @@ function hexID() {
 	const view = new DataView(buffer)
 
 	// 4-byte timestamp
-	view.setUint8(3, time & 0xff)
-	view.setUint8(2, (time >> 8) & 0xff)
-	view.setUint8(1, (time >> 16) & 0xff)
-	view.setUint8(0, (time >> 24) & 0xff)
+	view.setUint8(3, time & 0xFF)
+	view.setUint8(2, (time >> 8) & 0xFF)
+	view.setUint8(1, (time >> 16) & 0xFF)
+	view.setUint8(0, (time >> 24) & 0xFF)
 
 	// 5-byte process unique
 	view.setUint8(4, PROCESS_UNIQUE[0])
@@ -35,9 +38,9 @@ function hexID() {
 	view.setUint8(8, PROCESS_UNIQUE[4])
 
 	// 3-byte counter
-	view.setUint8(11, inc & 0xff)
-	view.setUint8(10, (inc >> 8) & 0xff)
-	view.setUint8(9, (inc >> 16) & 0xff)
+	view.setUint8(11, inc & 0xFF)
+	view.setUint8(10, (inc >> 8) & 0xFF)
+	view.setUint8(9, (inc >> 16) & 0xFF)
 
 	return _toHex(view)
 }

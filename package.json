@@ -6,6 +6,7 @@
   "files": [
     "dist",
     "index.js",
+    "browser.js",
     "LICENSE",
     "README.md"
   ],
