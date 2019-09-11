@@ -18,6 +18,11 @@ function _toHex(view) {
 	return arr.join('')
 }
 
+/**
+ * Generate an ID (24 character hex string)
+ *
+ * @returns {string} returns a valid 24 character ObjectID hex string.
+ */
 function hexID() {
 	const time = ~~(Date.now() / 1000)
 	const inc = _next()

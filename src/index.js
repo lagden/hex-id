@@ -4,11 +4,11 @@ const NUM = (typeof process === 'object' && process.pid) || Math.random()
 const PID = Math.floor(NUM * 100000) % 0xFFFF
 const MID = Math.floor(Math.random() * 0xFFFFFF)
 
-let idx = Math.floor(Math.random() * 0xFFFFFF)
+let cc = Math.floor(Math.random() * 0xFFFFFF)
 
 function _next() {
-	idx += 1 % 0xFFFFFF
-	return idx
+	cc += 1 % 0xFFFFFF
+	return cc
 }
 
 function _toHex(length, n) {

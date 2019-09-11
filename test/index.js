@@ -1,5 +1,5 @@
 import test from 'ava'
-import hexID from '..'
+import hexID from '../src'
 
 test('basic', t => {
 	const re = /[\da-f]{24}/

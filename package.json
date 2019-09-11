@@ -1,12 +1,10 @@
 {
   "name": "@tadashi/hex-id",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Creates an unique ID based on the system time.",
   "main": "dist/index.js",
   "files": [
     "dist",
-    "index.js",
-    "browser.js",
     "LICENSE",
     "README.md"
   ],
@@ -15,7 +13,7 @@
     "pretest": "xo",
     "test": "ava",
     "prebuild": "npm test && rm -rf dist",
-    "build": "npx rollup -c"
+    "build": "rollup -c"
   },
   "keywords": [
     "flatten",
@@ -29,9 +27,8 @@
     "node": ">=8.9.1"
   },
   "devDependencies": {
-    "ava": "1.4.1",
-    "rollup": "1.10.1",
-    "rollup-plugin-commonjs": "9.3.4",
+    "ava": "2.3.0",
+    "rollup": "1.21.2",
     "xo": "0.24.0"
   },
   "xo": {
