@@ -44,11 +44,11 @@ hexID()
 
 ## ES Module
 
-For modern browser, you can use:
+To use as `ES Molude`, you can make this:
 
 ```html
 <script type="module">
-  import hexID from '@tadashi/hex-id/dist/browser.js'
+  import hexID from '@tadashi/hex-id/dist/index.js'
   console.log(hexID()) // => 5d7950e2264e9720ef43a770
 </script>
 ````

@@ -1,8 +1,8 @@
 {
   "name": "@tadashi/hex-id",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "description": "Creates an unique ID based on the system time.",
-  "main": "dist/index.js",
+  "main": "dist/index.umd.js",
   "files": [
     "dist",
     "LICENSE",
@@ -16,20 +16,31 @@
     "build": "rollup -c"
   },
   "keywords": [
-    "flatten",
-    "object",
-    "level",
-    "deep"
+    "id",
+    "unique",
+    "time",
+    "ObjectID"
   ],
   "author": "Thiago Lagden",
   "license": "MIT",
   "engines": {
-    "node": ">=8.9.1"
+    "node": ">=12.0.0"
   },
   "devDependencies": {
-    "ava": "2.4.0",
-    "rollup": "1.21.4",
-    "xo": "0.24.0"
+    "ava": "3.7.0",
+    "esm": "3.2.25",
+    "rollup": "2.6.1",
+    "xo": "0.29.1"
+  },
+  "esm": {
+    "cjs": {
+      "dedefault": true
+    }
+  },
+  "ava": {
+    "require": [
+      "esm"
+    ]
   },
   "xo": {
     "semicolon": false,

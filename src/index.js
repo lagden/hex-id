@@ -1,9 +1,9 @@
+/* globals globalThis */
+/* eslint  unicorn/prevent-abbreviations: 0 */
+
 'use strict'
 
-const NUM = (typeof process === 'object' && process.pid) || Math.random()
-const PID = Math.floor(NUM * 100000) % 0xFFFF
-const MID = Math.floor(Math.random() * 0xFFFFFF)
-
+const PROCESS_UNIQUE = (typeof globalThis.process === 'object' && globalThis.process.pid) || globalThis.crypto.getRandomValues(new Uint8Array(5))
 let cc = Math.floor(Math.random() * 0xFFFFFF)
 
 function _next() {
@@ -11,8 +11,14 @@ function _next() {
 	return cc
 }
 
-function _toHex(length, n) {
-	return n.toString(16).padStart(length, '0')
+function _toHex(view) {
+	const arr = []
+	const len = view.byteLength
+	for (let i = 0; i < len; i++) {
+		arr.push(view.getUint8(i).toString(16).padStart(2, '0'))
+	}
+
+	return arr.join('')
 }
 
 /**
@@ -21,8 +27,30 @@ function _toHex(length, n) {
  * @returns {string} returns a valid 24 character ObjectID hex string.
  */
 function hexID() {
-	const time = parseInt(Date.now() / 1000, 10) % 0xFFFFFFFF
-	return `${_toHex(8, time)}${_toHex(6, MID)}${_toHex(4, PID)}${_toHex(6, _next())}`
+	const time = ~~(Date.now() / 1000)
+	const inc = _next()
+	const buffer = new ArrayBuffer(12)
+	const view = new DataView(buffer)
+
+	// 4-byte timestamp
+	view.setUint8(3, time & 0xFF)
+	view.setUint8(2, (time >> 8) & 0xFF)
+	view.setUint8(1, (time >> 16) & 0xFF)
+	view.setUint8(0, (time >> 24) & 0xFF)
+
+	// 5-byte process unique
+	view.setUint8(4, PROCESS_UNIQUE[0])
+	view.setUint8(5, PROCESS_UNIQUE[1])
+	view.setUint8(6, PROCESS_UNIQUE[2])
+	view.setUint8(7, PROCESS_UNIQUE[3])
+	view.setUint8(8, PROCESS_UNIQUE[4])
+
+	// 3-byte counter
+	view.setUint8(11, inc & 0xFF)
+	view.setUint8(10, (inc >> 8) & 0xFF)
+	view.setUint8(9, (inc >> 16) & 0xFF)
+
+	return _toHex(view)
 }
 
-module.exports = hexID
+export default hexID
