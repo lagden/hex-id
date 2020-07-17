@@ -1,4 +1,3 @@
-/* globals globalThis */
 /* eslint  unicorn/prevent-abbreviations: 0 */
 
 'use strict'
