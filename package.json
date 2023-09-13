@@ -1,6 +1,6 @@
 {
   "name": "@tadashi/hex-id",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Creates an unique ID based on the system time.",
   "keywords": [
     "id",
@@ -21,9 +21,8 @@
     "README.md"
   ],
   "exports": {
-    ".": {
-      "svelte": "./src/hex-id.js"
-    }
+    ".": "./src/hex-id.js",
+    "./src/hex-id.js": "./src/hex-id.js"
   },
   "scripts": {
     "eslint": "eslint --ignore-path .gitignore .",
