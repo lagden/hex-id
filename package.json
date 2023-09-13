@@ -20,6 +20,11 @@
     "LICENSE",
     "README.md"
   ],
+  "exports": {
+    ".": {
+      "svelte": "./src/hex-id.js"
+    }
+  },
   "scripts": {
     "eslint": "eslint --ignore-path .gitignore .",
     "lint": "prettier --check . && npm run eslint",
