@@ -1,0 +1,9 @@
+arrowParens: avoid
+# editorconfig: true
+insertPragma: false
+bracketSpacing: false
+semi: false
+useTabs: true
+singleQuote: true
+trailingComma: all
+printWidth: 1000

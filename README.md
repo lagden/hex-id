@@ -1,38 +1,33 @@
-# hexID
+# @tadashi/hex-id
 
 [![NPM version][npm-img]][npm]
 [![Build Status][ci-img]][ci]
 [![Coverage Status][coveralls-img]][coveralls]
-[![XO code style][xo-img]][xo]
-
 
 [npm-img]:         https://img.shields.io/npm/v/@tadashi/hex-id.svg
 [npm]:             https://www.npmjs.com/package/@tadashi/hex-id
-[ci-img]:          https://travis-ci.org/lagden/hex-id.svg
-[ci]:              https://travis-ci.org/lagden/hex-id
+[ci-img]:          https://github.com/lagden/hex-id/actions/workflows/nodejs.yml/badge.svg
+[ci]:              https://github.com/lagden/hex-id/actions/workflows/nodejs.yml
 [coveralls-img]:   https://coveralls.io/repos/github/lagden/hex-id/badge.svg?branch=master
 [coveralls]:       https://coveralls.io/github/lagden/hex-id?branch=master
-[xo-img]:          https://img.shields.io/badge/code_style-XO-5ed9c7.svg
-[xo]:              https://github.com/sindresorhus/xo
 
------
 
-Creates an unique ID based on the system time. (compatible with Mongo's ObjectID)
+Creates the unique ID based on the system time. (compatible with Mongo's ObjectID).
 
 ## Install
 
 ```
-$ npm i -S @tadashi/hex-id
+$ npm i @tadashi/hex-id
 ```
 
 
 ## Usage
 
-This module is using Universal Module Definition pattern.  
-It is capable of working everywhere, be it in the client, on the server or elsewhere.
+This library can be used on the client or server side.
 
 ```js
-const hexID = require('@tadashi/hex-id')
+import hexID from '@tadashi/hex-id'
+
 
 hexID()
 // => 5c48b2d79b156cb4effe05c8
@@ -42,18 +37,16 @@ hexID()
 ```
 
 
-## ES Module
+## Team
 
-To use as `ES Molude`, you can make this:
+[<img src="https://avatars.githubusercontent.com/u/130963?s=390" alt="Lagden" width="90">](https://github.com/lagden)
 
-```html
-<script type="module">
-  import hexID from '@tadashi/hex-id/dist/index.js'
-  console.log(hexID()) // => 5d7950e2264e9720ef43a770
-</script>
-````
+
+## Donate ❤️
+
+- BTC: bc1q7famhuj5f25n6qvlm3sssnymk2qpxrfwpyq7g4
 
 
 ## License
 
-MIT © [Thiago Lagden](https://lagden.in)
+MIT © [Thiago Lagden](https://github.com/lagden)

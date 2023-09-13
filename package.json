@@ -1,20 +1,7 @@
 {
   "name": "@tadashi/hex-id",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Creates an unique ID based on the system time.",
-  "main": "dist/index.umd.js",
-  "files": [
-    "dist",
-    "LICENSE",
-    "README.md"
-  ],
-  "scripts": {
-    "report": "nyc report --reporter=text-lcov | coveralls",
-    "pretest": "xo",
-    "test": "ava",
-    "prebuild": "npm test && rm -rf dist",
-    "build": "rollup -c"
-  },
   "keywords": [
     "id",
     "unique",
@@ -24,28 +11,27 @@
   "author": "Thiago Lagden",
   "license": "MIT",
   "engines": {
-    "node": ">=12.0.0"
+    "node": ">=18"
+  },
+  "type": "module",
+  "main": "src/hex-id.js",
+  "files": [
+    "src",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "eslint": "eslint --ignore-path .gitignore .",
+    "lint": "prettier --check . && npm run eslint",
+    "format": "prettier --write .",
+    "pretest": "npm run lint",
+    "test": "c8 --reporter=text --reporter=text-summary --reporter=lcovonly --reporter=cobertura node --test"
   },
   "devDependencies": {
-    "ava": "3.10.1",
-    "esm": "3.2.25",
-    "rollup": "2.21.0",
-    "xo": "0.32.1"
-  },
-  "esm": {
-    "cjs": {
-      "dedefault": true
-    }
-  },
-  "ava": {
-    "require": [
-      "esm"
-    ]
-  },
-  "xo": {
-    "semicolon": false,
-    "rules": {
-      "capitalized-comments": 0
-    }
+    "c8": "8.0.1",
+    "eslint": "8.49.0",
+    "eslint-config-prettier": "9.0.0",
+    "eslint-plugin-svelte": "2.33.1",
+    "prettier": "3.0.3"
   }
 }
